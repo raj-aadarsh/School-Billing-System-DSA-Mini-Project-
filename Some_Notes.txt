@@ -1,0 +1,132 @@
+Done :-
+1. Phase 1 and 2 Completed already.
+2. In Phase 3 i.e. image extraction :-
+    a. Built a python code which would run the
+        script directly when the Django server
+        runs or when we call the POST API.
+    b. Modified the script code alot.
+    c. Modified the python code to accept the
+        Build ID in the shell script used for         
+        further process.
+    g. Modified the database to store the stats of the extraction process. 
+3. All the 3 phases are working properly.
+
+
+
+REACT PART:-
+{
+Nodejs should be installed in the system.
+[Method] : source env/bin/activate
+Then : sudo apt-get update
+Then : sudo apt install curl
+Then : sudo apt-get install -y curl dirmngr apt-transport-https lsb-release ca-certificates
+Then : curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+Then : sudo apt-get install -y nodejs
+Then to check : node -v and npm -v and npx -v
+
+
+
+To setup the app in the react folder :-
+npm install -g create-react-app
+Being in the React folder run this to setup a new app : npx create-react-app myreactapp
+
+To setup the react project i.e. integrating it with the Django :-
+pip install django-cors-headers
+
+In settings.py :-
+INSTALLED_APPS = [    ...    'corsheaders',    ...]
+MIDDLEWARE = [    ...    'django.middleware.common.CommonMiddleware',    'corsheaders.middleware.CorsMiddleware',    ...]
+CORS_ORIGIN_ALLOW_ALL = True
+
+npm install axios
+npm install react-router-dom
+And then modify the app.js file and created different files for different APIs
+
+
+Now Setting up a project for React and MongoDB for real time data displays :-
+npm install mongoose express cors axios
+npm install react-bootstrap bootstrap
+And sent the api calls to the Django from react
+Now the data for the count, fetch and active are displayed in the react
+
+
+Upgrading the UI :-
+1. Have completedly changed the one page UI to a amazing website. Included the left and right sections along with footer and navbar at header.
+2. Included the buttons in navbar, directing to the webpages respectively.
+3. All the data display is in real time. All tested.
+
+
+Added the Delete Api call in the UI for failed Builds :-
+Used the post api function to delete the document with the build id as input.
+And in the react set the api in such a way that it would give the delete option in front of those failed builds and delete button will take its build ID as input and delete from database.
+}
+
+
+Added the Restart Button in the UI for restarting the failed Build Process :-
+Used the post api of the parse itself. And in the Ui i have given the path through the failed column itself so no need of giving the path again.
+Also the partial files created during the process will also be deleted. Data in database will be updated not deleted.
+
+
+Now Continuing with the Backend with the Second Server [MobSF] :-
+1. A new server needs to be run i.e. MobSF server for the apks to be parsed.
+2. The apks needs to be fetched one by one and sent to the server and the data retrived needs to be stored in the database.
+3. Installing the Modified version of MobSF server:
+a. Clone the the repository : https://github.com/venkatsatish468/Mobsf_Application_Processor
+And install some dependencies given in the MobSF documentation
+b. cd to the MobSF root folder
+c. Change the permission for the setup.sh file to run it : chmod +x setup.sh
+d. Now run the setup.sh file : ./setup.sh
+e. After the installation run the run.sh file : ./run.sh 127.0.0.1:8000
+f. Running on 8000 as i am running the Django in 8080 port
+g. Now the MobSF server is ready
+h. Also copy the API KEY from the server once installed in system.
+
+
+Working on the MongoDB Listener :-
+1. npm install realm-web (within the react app)
+2. Create an app service in the database for the cluster. And give real all permission in the rules section left side.
+3. Next use the authorization section to authorize anounamously in the cluster with app ID. I will later change and put an API KEY for authorization.
+4. And through these steps i have implemented the Realm Model in the React using the MongoDB stream change method.
+Created an app service for sending signal when there's a change in the database. The UI catches the signal and then at every event change there is an API call to get the details from the database. We can even display the change which occured in the database i.e. on which document and document details.
+This is used to display number of active users, active sessions going on and data from database display.
+
+
+
+Working to integrate the parsing code :-
+1. Pip install the required modules: 
+pip install requests
+pip install bson
+pip install pyaxmlparser
+pip install xmltodict
+2. Integrating the code so that my code and parse code works together.
+3. Changed the collection according to my project.
+4. Successful tests on the functions related to build_record.
+5. The collections and the data string of the build_record is working fine.
+6. Now testing along with MobSF server.
+7. The MobSF server is running fine.
+8. Now final task to merge other important functions.
+9. 
+
+
+
+Before actual testing of the mobSF server these were some things done :-
+1. Put the Lib file given by sir in the 
+mobsf->StaticAnalyzer->Tools->Jadx->Put the file here.
+2. Replace the apk.py file given by Venkat in the path - /home/ar9111/Desktop/Mobsf_Application_Processor-master/venv/lib/python3.10/site-packages/androguard/core/bytecodes/
+3. Put the Android folder containing the SDK in this path - 
+/Home/ar9111/
+And add some extra path variables in the linux system using this :-
+export PATH=$PATH:<put the path here>
+And need to give command 3 times because three paths are there :-
+a. /opt/jadx/bin       (and remember to put the jadx in the opt folder. jadx is present in the StaticAnalyzer folder in Tools folder. Copy paste from there)
+b. /home/ar9111/Android/Sdk/build-tools/33.0.0
+c. /home/ar9111/Android/Sdk/platform-tools
+4. Modify the .bashrc file present in the root directory.
+Add these things to the file :-
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/build-tools/33.0.0
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+Sir has sent his system's bashrc file to take the reference like where to exactly put the 3 exports statements.
+
+
+

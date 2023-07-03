@@ -1,0 +1,6 @@
+After setting up ubuntu download the files from internet for applications required and use these commands to install them :-
+
+1. sudo dpkg -i google-chrome-stable_current_amd64.deb
+2. sudo dpkg -i code_1.78.0-1683145611_amd64.deb
+3. Extract the tar.gz file for Postman : tar -zxvf postman-linux-x64.tar.gz
+4. For Github Desktop : sudo dpkg -i  GitHubDesktop-linux-3.1.1-linux1.deb
